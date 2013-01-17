@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <link href="f/style.css" type="text/css" rel="stylesheet">
+        <link href="f/bs/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="f/bs/css/bootstrap-responsive.min.css" type="text/css" rel="stylesheet">
+        <title>FreeCanvas for Molly</title>
+    </head>
+    <body onkeypress="openNotice(event);">
+        <div id="lightBox" onclick="closeInput();" style="visibility: hidden;"></div>
+        <div id="main_container" class="container">
+            <div id="cursors" class="span8"></div>
+            <div class="g span8"></div>
+        </div>
+        <div id="chat">
+            <div style="overflow-wrap: break-word;overflow-y: scroll;background-color: #fff;">
+                <ul id="messagelog">
+                </ul>
+            </div>
+        </div>
+        <div id="largeInput" style="visibility: hidden;">
+            <label for="inputBox">Message</label>
+            <input type="text" maxlength="140" id="inputBox" class="selectable"></input>
+            <canvas id="color" width="220"height="12" onmousedown="colorOutOfDate = true;" onmousemove="if(colorOutOfDate) {updateLumInput();}"></canvas>
+            <canvas id="lum" width="220"height="12" style="background-color: #888;" onmousedown="colorOutOfDate = true;"></canvas>
+            <canvas id="size" width="220"height="15" onmousedown="sizeOutOfDate = true;"></canvas>
+            <input type="button" value="Change Name" onclick="setUsername();" class="selectable"></input>
+            <input type="button" value="Save Canvas" onclick="saveCanvas();" class="selectable"></input>
+            <input type="button" value="Refresh Canvas" onclick="refreshCanvas();" class="selectable"></input>
+        </div>
+        <script src="f/zepto.min.js" type="text/javascript"></script>
+        <script src="f/client.js" type="text/javascript"></script>
+    </body>
+</html>
